@@ -1,19 +1,32 @@
-# cheyouquan
+# 车友圈
 
-## Project setup
+## 一. 项目运行
+
+### 1. 安装依赖文件
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 2. 启动服务
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 3. build
+
 ```
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 二. 技术选型
+
+- Vue
+- Vue route
+- Vuex
+- babel
+- less
+- vant UI
+
+- 移动端适配方案：rem+flexible
+
