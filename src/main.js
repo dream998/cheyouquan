@@ -3,18 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-//移动端适配
-import 'amfe-flexible/index.js'
-
-//引入vant组件
-import { Button, NavBar} from 'vant';
-import { Toast } from 'vant';
-//这是vant组件的使用
-Vue.use(Button);
-Vue.use(NavBar);
-Vue.use(Toast);
-
-
 Vue.config.productionTip = false
 
 new Vue({
