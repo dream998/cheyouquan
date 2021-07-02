@@ -1,7 +1,7 @@
 <template>
   <div id="publish">
     <div class="top">
-      <img src="~assets/imgs/arrow_ic.svg" alt="" />
+      <img src="~assets/imgs/arrow_ic.svg" alt="" @click = 'back'/>
       <span>发布</span>
       <span>···</span>
     </div>
@@ -35,6 +35,10 @@ export default {
             //让input框自动聚焦就可以让手机自动调出软键盘
             var input = document.querySelector('input');
             input.focus();
+        },
+
+        back() {
+            this.$router.replace('/home');
         }
     }
 };

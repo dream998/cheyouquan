@@ -3,9 +3,9 @@ import VueRouter from 'vue-router'
 import Login from 'views/Login.vue'
 
 const Home = () => import('views/home/Home.vue')
-const Profile = () => import('views/Profile.vue')
+const Profile = () => import('views/profile/Profile.vue')
 const Publish = () => import('views/Publish.vue')
-
+const MyComment = () => import('views/profile/childComponent/MyComment.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -35,6 +35,11 @@ const routes = [
     path: '/publish',
     name: 'Publish',
     component: Publish
+  },
+  {
+    path: '/mycomment',
+    name: 'MyComment',
+    component: MyComment
   }
 ]
 

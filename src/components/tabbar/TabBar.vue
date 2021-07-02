@@ -19,6 +19,7 @@ export default {
       right: 0;
       bottom: 0;
       height: 75px;
+      background-color: #fff;
       
   }
 </style>

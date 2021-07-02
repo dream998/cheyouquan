@@ -6,11 +6,9 @@
       <span>···</span>
     </div>
 
-    <div class='hot_cycle'>
-        <img src="~assets/imgs/车友圈@3x.png" alt="" />
-        <span class='text'>热门车友圈</span>
-    </div>
 
+    <HotCycle/>
+    <MessageFlow :msg = 'message'/>
     <Release/>
     <MainTabBar/>
 
@@ -19,20 +17,38 @@
 
 <script>
 
-import Release from './Release.vue'
+import HotCycle from './childComponent/HotCycle.vue'
+import MessageFlow from './childComponent/MessageFlow.vue'
+import Release from './childComponent/Release.vue'
 import MainTabBar from 'components/tabbar/MainTabBar'
 
+import {getHomeGoods} from "network/home";
 
 export default {
   name: 'Home',
   components: {
+    HotCycle,
+    MessageFlow,
     Release,
     MainTabBar
+  },
+  data() {
+    return {
+      message: [],
+    }
+  },
+  created() {
+    getHomeGoods().then(res => {
+      this.message = res.data.data;
+    })
   }
 };
 </script>
 
 <style scoped>
+#home {
+  position: relative;
+}
 .top {
   display: flex;
   justify-content: space-between;
@@ -53,29 +69,6 @@ export default {
     font-family: PingFang SC;
     color: #333333;
     font-size: 16px;
-}
-.hot_cycle {
-    width: 100%;
-    height: 30px;
-    margin-top: 40px;
-    margin-left: 17px;
-}
-
-.hot_cycle img {
-    float: left;
-    width: 15px;
-    height: 15px;
-    vertical-align: middle;
-    background-color: #fff;
-}
-
-.hot_cycle .text {
-    float: left;
-    font-family: PingFang-SC-Medium;
-    font-size: 14px;
-    color: #333333;
-    line-height: 14px;
-    margin-left: 5px;
 }
 
 .bottom {
