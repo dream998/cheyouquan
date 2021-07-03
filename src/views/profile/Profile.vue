@@ -1,12 +1,12 @@
 <template>
   <div id="profile">
+
    <!-- <div class="top">
       <img src="~assets/imgs/arrow_ic.svg" alt="" @click="back" />
       <span>我的</span>
       <span>···</span>
     </div> -->
 	<top-bar title="个人首页"></top-bar>
-	
     <UserMessage :msg = 'message'/>
     <ShareComment />
     <MainTabBar />
@@ -29,6 +29,7 @@ export default {
     ShareComment,
     MainTabBar,
 	TopBar
+
   },
 
   data() {

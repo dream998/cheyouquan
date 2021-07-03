@@ -8,9 +8,6 @@ import 'amfe-flexible/index.js'
 
 //引入vant组件
 import { Button, NavBar,Form,Field,Toast} from 'vant';
-
-
-
 //这是vant组件的使用
 Vue.use(Button);
 Vue.use(NavBar);

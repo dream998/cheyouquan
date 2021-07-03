@@ -1,5 +1,6 @@
 <template>
 	<div>
+
 		<top-bar title='登录'></top-bar>
 		<div class="content">
 			<div class="content-title">登录车友圈</div>
@@ -29,7 +30,7 @@
 
 	export default {
 		components: {
-			TopBar
+
 		},
 		data() {
 			return {

@@ -4,17 +4,19 @@ import VueRouter from 'vue-router'
 import Login from 'views/Login.vue'
 import Error from 'views/Error.vue'
 import Circle from 'views/Circle.vue'
+
 const Home = () => import('views/home/Home.vue')
 const Profile = () => import('views/profile/Profile.vue')
 const Publish = () => import('views/Publish.vue')
 const MyComment = () => import('views/profile/childComponent/MyComment.vue')
 
-
 import axios from 'axios'
 import mock from 'network/mock.js'
+
 Vue.use(VueRouter)
 
 const routes = [
+ 
   {
     path: '/login',
     name: 'Login',

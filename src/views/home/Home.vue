@@ -1,11 +1,6 @@
 <template>
   <div id="home" ref = 'home'>
-    <!-- <div class="top">
-      <img src="~assets/imgs/arrow_ic.svg" alt="" />
-      <span>车友圈</span>
-      <span>···</span>
-    </div> -->
-
+    
 	<top-bar title='主页'></top-bar>
     <HotCycle/>
     <MessageFlow :msg = 'message'/>
@@ -25,7 +20,6 @@ import TopBar from 'components/TopBar.vue'
 import {getHomeGoods} from "network/home";
 
 
-
 export default {
   name: 'Home',
   components: {
@@ -34,6 +28,7 @@ export default {
     Release,
     MainTabBar,
 	TopBar
+
   },
   data() {
     return {
@@ -53,6 +48,7 @@ export default {
   position: relative;
   width: 100%;
   box-sizing: border-box;
+
 }
 .top {
   display: flex;
