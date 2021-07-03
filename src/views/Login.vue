@@ -30,7 +30,7 @@
 
 	export default {
 		components: {
-
+			TopBar
 		},
 		data() {
 			return {

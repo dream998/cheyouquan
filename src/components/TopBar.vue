@@ -32,5 +32,6 @@ import { Toast } from 'vant';
 	};
 </script>
 
-<style>
+<style scoped="scoped">
+		
 </style>
