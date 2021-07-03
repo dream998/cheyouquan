@@ -7,13 +7,16 @@ import store from './store'
 import 'amfe-flexible/index.js'
 
 //引入vant组件
-import { Button, NavBar} from 'vant';
-import { Toast } from 'vant';
+import { Button, NavBar,Form,Field,Toast} from 'vant';
+
+
+
 //这是vant组件的使用
 Vue.use(Button);
 Vue.use(NavBar);
 Vue.use(Toast);
-
+Vue.use(Form);
+Vue.use(Field);
 
 Vue.config.productionTip = false
 
