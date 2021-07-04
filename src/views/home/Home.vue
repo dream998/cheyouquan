@@ -50,27 +50,7 @@ export default {
   box-sizing: border-box;
 
 }
-.top {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 1.173333rem;
-  padding: 5px 0.625rem;
-  box-sizing: border-box;
-}
 
-.top img {
-  width: 1.469375rem;
-  height: 1.469375rem;
-
-  transform: scaleX(-1);
-}
-
-.top span {
-    font-family: PingFang SC;
-    color: #333333;
-    font-size: 16px;
-}
 
 .bottom {
     position: absolute;
