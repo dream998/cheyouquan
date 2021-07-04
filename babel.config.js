@@ -10,4 +10,3 @@ module.exports = {
       }, 'vant']
     ]
 }
-// 这是主分支的内容
