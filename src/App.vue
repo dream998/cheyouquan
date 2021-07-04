@@ -16,6 +16,12 @@
 		src: url('./assets/PingFang/PingFang-SC-Medium.ttf');
 
 	}
+	
+	@font-face {
+		font-family: 'PingFang-SC-Regular';
+		src: url('./assets/PingFang/PingFang-Regular.ttf');
+	
+	}
 
 	html,
 	body {
