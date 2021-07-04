@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const service = axios.create({
 	baseURL: 'http://121.4.90.69:8082/',
-	timeout: 5000
+	
 })
 
 //拦截器

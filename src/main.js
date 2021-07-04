@@ -8,13 +8,16 @@ import 'amfe-flexible/index.js'
 // import 'assets/js/flexible.js'
 
 //引入vant组件
-import { Button, NavBar,Form,Field,Toast} from 'vant';
+import { Button, NavBar,Form,Field,Toast,Uploader} from 'vant';
+
+
 //这是vant组件的使用
 Vue.use(Button);
 Vue.use(NavBar);
 Vue.use(Toast);
 Vue.use(Form);
 Vue.use(Field);
+Vue.use(Uploader);
 
 Vue.config.productionTip = false
 
