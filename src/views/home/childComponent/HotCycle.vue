@@ -23,27 +23,25 @@ export default {
 
 <style scoped>
 .title{
-    width: 100%;
+    box-sizing: border-box;
     height: 30px;
     margin-top: 40px;
     margin-left: 17px;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 14px;
+    font-weight: 500;
 }
 
 .title img {
     float: left;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
-    background-color: #fff;
+    margin-right: 1px;
 }
 
-.title .text {
-    float: left;
-    font-family: PingFang-SC-Medium;
-    font-size: 14px;
-    color: #333333;
-    line-height: 14px;
-    margin-left: 5px;
-}
 
 </style>

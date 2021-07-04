@@ -13,7 +13,7 @@ service.interceptors.request.use(
 		//1. 作用一：config中的一些信息不符合服务器的要求进行修改
 		//2. 作用二：每次发送网络请求时在界面显示一个请求的图标
 		//3. 作用三：某些网络请求（比如登录token），必须携带一些特殊的信息
-		let token = window.localStorage.getItem('access-admin')
+		let token =JSON.parse(window.localStorage.getItem('access-admin'))
 		if (token) {
 			config.headers.authorization = token
 		}

@@ -1,7 +1,7 @@
 <template>
   <div id="share-comment">
 
-    <div class="share">
+    <div class="share" @click='shareClick'>
       <img class="icon" src="~assets/imgs/Star 2 Copy@2x.png" alt="" />
       <span class="text">我的动态</span>
       <img  class='img' src="~assets/imgs/arrow_ic@2x.png" alt="" />
@@ -22,6 +22,10 @@ export default {
   methods: {
       commentClick() {
           this.$router.replace('/mycomment')
+      },
+
+      shareClick() {
+        this.$router.replace('/myshare')
       }
   }
 };
@@ -41,6 +45,7 @@ export default {
 
 #share-comment .share .icon {
   margin-right: 15px;
+  padding-left: 5px;
   width: 20px;
   height: 20px;
   vertical-align: middle;

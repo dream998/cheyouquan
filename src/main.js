@@ -5,6 +5,7 @@ import store from './store'
 
 //移动端适配
 import 'amfe-flexible/index.js'
+// import 'assets/js/flexible.js'
 
 //引入vant组件
 import { Button, NavBar,Form,Field,Toast} from 'vant';

@@ -5,7 +5,10 @@
 	</div>
 </template>
 
+
 <style lang="less">
+
+   
 	* {
 		padding: 0;
 		margin: 0;

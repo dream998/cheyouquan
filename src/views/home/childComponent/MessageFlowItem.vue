@@ -67,16 +67,34 @@ export default {
 }
 .header {
   width: 100%;
-  height: 40px;
+  /* height: 40px; */
   margin-bottom: 10px;
 }
 .header img {
   float: left;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 }
 .name-time {
-  margin-left: 40px;
+  margin-left: 50px;
   margin-top: 20px;
+}
+.name-time .username {
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #333333;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.name-time .time {
+  margin-top: 5px;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #999999;
+  line-height: 12px;
+  font-weight: 400;
 }
 .text {
   overflow: hidden;
@@ -84,6 +102,12 @@ export default {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 24px;
+  font-weight: 400;
 }
 .img {
   display: flex;
@@ -98,6 +122,10 @@ export default {
   height: 35px;
   margin-top: 20px;
   margin-right: 20px;
+  font-family: PingFang SC;
+  color: #333333;
+  font-size: 12px;
+  line-height: 12px;
 }
 
 .comment-like .comment {

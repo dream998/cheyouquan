@@ -41,8 +41,8 @@ export default {
 }
 
 #comment-item .icon img{
-    width: 60px;
-    height: 60px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
 }
 
@@ -52,11 +52,14 @@ export default {
 }
 
 #comment-item .name-text-time .name {
-   font-size: 24px;
-   color: #333333;
-   line-height: 24px;
-   font-weight: 600;
-   margin-bottom: 5px;
+   margin-bottom: 12px;
+
+   font-family: PingFang-SC-Bold;
+   font-size: 14px;
+   color: #222222;
+   letter-spacing: 0;
+   line-height: 14px;
+   font-weight: 700;
 }
 
 #comment-item .name-text-time .text {
@@ -65,25 +68,29 @@ export default {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    font-size: 14px;
-    color: #999999;
+
+    font-weight: 400;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #222222;
     letter-spacing: 0;
-    line-height: 20px;
+    line-height: 16px;
     font-weight: 400;
 }
 
-#comment-item .name-text-time .text img {
+/* #comment-item .name-text-time .text img {
     width: 13.27px;
     height: 13.27px;
-}
+} */
 
 #comment-item .name-text-time .time {
+    font-family: PingFangSC-Regular;
     font-size: 12px;
     color: #999999;
     letter-spacing: 0;
     line-height: 12px;
     font-weight: 400;
-    margin-top: 10px;
+    margin-top: 12px;  
 }
 
 #comment-item .name-text-time .time img {

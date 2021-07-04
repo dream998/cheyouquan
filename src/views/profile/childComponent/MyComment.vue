@@ -1,10 +1,7 @@
 <template>
   <div id="my-comment">
-    <div class="top">
-      <img src="~assets/imgs/arrow_ic.svg" alt="" @click="back" />
-      <span>我的评论</span>
-      <span>···</span>
-    </div>
+
+    <top-bar title='我的评论'></top-bar>
     
     <commentItem v-for='item in message' :msg='item' />
   </div>
@@ -12,6 +9,7 @@
 
 <script>
 
+import TopBar from "components/TopBar.vue";
 import commentItem from './commentItem.vue'
 
 import {getMyComment} from 'network/MyComment.js'
@@ -19,7 +17,9 @@ import {getMyComment} from 'network/MyComment.js'
 export default {
   name: "MyComment",
   components: {
+    TopBar,
     commentItem
+
   },
   data() {
     return {
@@ -41,27 +41,5 @@ export default {
 </script>
 
 <style scoped>
-.top {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 1.173333rem;
-  padding: 5px 0.625rem;
-  box-sizing: border-box;
-  background: #fff;
-}
-
-.top img {
-  width: 1.469375rem;
-  height: 1.469375rem;
-
-  transform: scaleX(-1);
-}
-
-.top span {
-  font-family: PingFang SC;
-  color: #333333;
-  font-size: 16px;
-}
 
 </style>

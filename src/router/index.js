@@ -10,6 +10,7 @@ const Profile = () => import('views/profile/Profile.vue')
 const Publish = () => import('views/Publish.vue')
 const MyComment = () => import('views/profile/childComponent/MyComment.vue')
 
+
 import axios from 'axios'
 import mock from 'network/mock.js'
 
@@ -58,7 +59,8 @@ const routes = [
     path: '/mycomment',
     name: 'MyComment',
     component: MyComment
-  }
+  },
+
 ]
 
 const router = new VueRouter({

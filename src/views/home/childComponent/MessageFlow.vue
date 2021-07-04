@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
   #message-flow {
-      width: 100%;
+      width: 343px;
       margin: 25px;
   }
 </style>

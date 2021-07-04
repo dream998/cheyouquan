@@ -37,36 +37,43 @@ export default {
 
 <style scoped>
 button {
-  position: absolute;
-  right: 10px;
-  bottom: 120px;
+  position: fixed;
+  right: 16px;
+  bottom: 75px;
   width: 50px;
   height: 50px;
   border-radius: 30px;
-  font-family: PingFang SC;
+  font-family: PingFangSC-Medium;
   font-size: 14px;
-  color: #333333 100%;
-  background: #ffe100 100%;
+  color: #333333;
+  font-weight: 500;;
+  background: #ffe100;
   border: none;
   outline: none;
   z-index: 10;
 }
 
 .release_content {
-  position: absolute;
-  right: 10px;
-  bottom: 200px;
+  position: fixed;
+  right: 16px;
+  bottom: 133px;
   width: 134px;
-  height: 130px;
-  background-color: #ffffff 100%;
+  height: 112px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.20);
+
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color: #333333;
+  line-height: 16px;
+  font-weight: 500;
 }
 .release_content img {
   vertical-align: middle;
-}
-
-.release_content .img,
-.queston {
-  margin: 15px;
+  width: 30px;
+  height: 30px;
+  margin: 14px 12px;
   box-sizing: border-box;
 }
+
 </style>
