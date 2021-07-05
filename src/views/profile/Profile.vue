@@ -1,7 +1,9 @@
 <template>
   <div id="profile">
-
-	<top-bar title="个人首页"></top-bar>
+	<div class="profile-topbar">
+		<top-bar title="个人首页"></top-bar>
+	</div>
+	
     <UserMessage :msg = 'message'/>
     <ShareComment />
     <MainTabBar />
@@ -55,7 +57,9 @@ export default {
   background: #F5F5F5;
   height: 667px;
 }
-
+.profile-topbar{
+	height: 50px;
+}
 .changeCount {
   margin: 6px auto;
   background-color: #fff;

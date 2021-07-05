@@ -1,7 +1,9 @@
 <template>
 	<div>
-
-		<top-bar title='登录'></top-bar>
+		<div class="login-topbar">
+			<top-bar title='登录'></top-bar>
+		</div>
+		
 		<div class="content">
 			<div class="content-title">登录车友圈</div>
 			<van-form @submit="onSubmit">
@@ -111,7 +113,9 @@
 
 
 	}
-
+	.login-topbar{
+		height: 50px;
+	}
 	.van-button--warning {
 		color: #1F2129;
 	}

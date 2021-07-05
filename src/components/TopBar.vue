@@ -1,11 +1,14 @@
 <template>
-	<van-nav-bar
-	  :title='this.title'
-	  right-text="···"
-	  left-arrow
-	  @click-left="onClickLeft"
-	  @click-right="onClickRight"
-	/>
+	<div class="topbar">
+		<van-nav-bar
+		  :title='this.title'
+		  right-text="···"
+		  left-arrow
+		  @click-left="onClickLeft"
+		  @click-right="onClickRight"
+		/>
+	</div>
+	
 </template>
 
 <script>	
@@ -14,7 +17,8 @@ import { Toast } from 'vant';
 		
 	  methods: {
 	    onClickLeft() {
-	      this.$router.back()
+	      //this.$router.back()
+		  this.$emit('goBefore')
 		 
 	    },
 	    onClickRight() {
@@ -33,5 +37,12 @@ import { Toast } from 'vant';
 </script>
 
 <style scoped="scoped">
-		
+	.topbar{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 99;
+	}	
+	
 </style>

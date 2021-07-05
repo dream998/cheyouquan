@@ -1,7 +1,10 @@
 <template>
 
 	<div id="publish">
-		<top-bar title='发布'></top-bar>
+		<div class="publish-topbar">
+			<top-bar title='发布' @goBefore='goBefore'></top-bar>
+		</div>
+		
 		<div id="content" ref='content'>
 			<div class='text'>
 
@@ -14,19 +17,32 @@
 
 
 		<div class="select">
-			<button class="choose-circle">
+			<button class="choose-circle" @click="chooseCircle">
 				<div class='big'>
 					<div class='small'></div>
 				</div>
-				选择车圈 >
+				<span v-if="circleName">{{circleName}} ></span>
+				<span v-else>选择车圈 ></span>
+				
 			</button>
 			<div class="num">{{message.length}}/2000</div>
 			<div class='fabu' @click="upload">发布</div>
 		</div>
+		
+		<van-action-sheet
+		  v-model="show"
+		  :actions="actions"
+		  cancel-text="取消"
+		  close-on-click-action
+		  @cancel="onCancel"
+		  @select="onSelect"
+		/>
 	</div>
+	
 </template>
 
 <script>
+	import {Toast} from 'vant'
 	import TopBar from 'components/TopBar.vue'
 	import {
 		uploadMessage
@@ -43,7 +59,12 @@
 			return {
 				fileList: [],
 				message: '',
-				previewSize: 0
+				previewSize: 0,
+				circleID:'',
+				circleName:'',
+				show: false,
+				actions: [{ name: '保存草稿' }, { name: '丢弃' }],
+				
 
 			}
 		},
@@ -51,21 +72,96 @@
 
 		},
 		methods: {
-
+			//发表图文
 			upload() {
 				console.log("上传图片");
 				console.log(this.message);
-				request.get('api/user/dynamic', {
-									params: {
-										username: 'wu',
-									}
-								}).then(res => {
-									console.log('success');
-									console.log(res);
-								}, err => {
-									console.log(err);
-								})
+				// request.get('api/client/user/dynamic', {
+				// 					params: {
+				// 						username: 'wu',
+				// 					}
+				// 				}).then(res => {
+				// 					console.log('success');
+				// 					console.log(res);
+				// 				}, err => {
+				// 					console.log(err);
+				// 				})
 				//uploadMessage(this.message,this.fileList).then(res=>{console.log(res);})
+				console.log("车圈ID是"+this.$route.params.circleID);
+				//this.circleID = this.$route.params.circleID;
+				if( !this.message){
+					Toast("请输入内容！")
+				}
+				if( !this.circleID){
+					Toast("您还没有选择车圈！")
+				}
+				
+			},
+			 onCancel() {
+			      Toast('取消');
+			    },
+				
+			 onSelect(item) {
+			      // 默认情况下点击选项时不会自动收起
+			      // 可以通过 close-on-click-action 属性开启自动收起
+			      //this.show = false;
+				  console.log(item);
+			      //Toast(item.name);
+				  if(item.name == '保存草稿'){
+					 this.setLocalStorage()
+				  }
+				  if(item.name == '丢弃'){
+					  this.removeLocalStorage()
+				  }
+				  
+				this.$router.replace('/home')
+				  
+			    },
+			//点击返回按钮
+			goBefore(){
+				console.log("点击了返回");
+				this.show = true
+				
+			},
+			setLocalStorage(){
+				if(this.message){
+					window.localStorage.setItem('text',this.message);
+				}
+				if(this.fileList){
+					window.localStorage.setItem('imgs',JSON.stringify(this.fileList))
+				}
+				if(this.circleName){
+					window.localStorage.setItem('circleName',this.circleName)
+				}
+				if(this.circleID){
+					window.localStorage.setItem('circleID',this.circleID);
+				}
+				
+				
+			},
+			getLocalStorage(){
+				if(window.localStorage.getItem('circleName')){
+					this.circleName = window.localStorage.getItem('circleName')
+				}
+				if(window.localStorage.getItem('circleID')){
+					this.circleID = window.localStorage.getItem('circleID')
+				}
+				if(window.localStorage.getItem('text')){
+					this.message = window.localStorage.getItem('text')
+				}
+				if(window.localStorage.getItem('imgs')){
+					this.fileList = JSON.parse(window.localStorage.getItem('imgs'))
+				}
+				
+				
+				
+				 
+			},
+			removeLocalStorage(){
+				window.localStorage.removeItem('text');
+				window.localStorage.removeItem('imgs')
+				window.localStorage.removeItem('circleName')
+				window.localStorage.removeItem('circleID');
 			},
 			inputClick() {
 				//让input框自动聚焦就可以让手机自动调出软键盘
@@ -78,15 +174,46 @@
 				console.log(file.file);
 				console.log(this.fileList);
 			},
+			chooseCircle(){
+				 this.$router.push('/circle');
+			}
 
 		},
+		
 		mounted() {
 			this.previewSize = (this.$refs.content.clientWidth - 26) / 3;
+		},
+		created(){
+			console.log("组件创建了");
+			//如果路由跳转携带参数则更新车圈名和车圈ID
+			this.getLocalStorage()
+			
+			if(this.$route.params){
+				this.circleName = this.$route.params.name;
+				this.circleID = this.$route.params.circleID
+			}
+				
+				
+			
+			
+		},
+		destroyed() {
+			console.log(this.$route.name);
+			if(this.$route.name == 'circle'){
+				this.setLocalStorage()
+			}
 		}
+		
+		
 	};
 </script>
 
 <style scoped>
+	
+	.publish-topbar{
+		height: 50px;
+	}
+	
 	#content {
 		margin-top: 10px;
 		margin-left: 10px;

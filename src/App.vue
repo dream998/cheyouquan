@@ -1,7 +1,9 @@
 <template>
 	<div id="app">
-
-		<router-view />
+		
+			<router-view />
+		
+		
 	</div>
 </template>
 
@@ -13,6 +15,7 @@
 		padding: 0;
 		margin: 0;
 	}
+	
 
 	@font-face {
 		font-family: 'PingFang-SC-Medium';

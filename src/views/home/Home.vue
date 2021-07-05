@@ -1,7 +1,9 @@
 <template>
   <div id="home" ref = 'home'>
-    
-	<top-bar title='主页'></top-bar>
+    <div class="home-topbar">
+		<top-bar title='主页' ></top-bar>
+	</div>
+	
     <HotCycle/>
     <MessageFlow :msg = 'message'/>
     <Release/>
@@ -48,9 +50,12 @@ export default {
   position: relative;
   width: 100%;
   box-sizing: border-box;
-
 }
 
+.home-topbar{
+	
+	height: 50px;
+}
 
 .bottom {
     position: absolute;
