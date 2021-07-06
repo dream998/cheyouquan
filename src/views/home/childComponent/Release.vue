@@ -29,7 +29,7 @@ export default {
     },
 
     divClick() {
-       this.$router.replace('/publish');
+       this.$router.push('/publish');
     }
   },
 };

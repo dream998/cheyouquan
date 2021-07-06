@@ -21,6 +21,8 @@ Vue.use(Uploader);
 
 Vue.config.productionTip = false
 
+Vue.prototype.$bus = new Vue()     //数据总线$bus
+
 new Vue({
   router,
   store,

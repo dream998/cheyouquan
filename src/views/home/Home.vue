@@ -1,45 +1,56 @@
 <template>
-  <div id="home" ref = 'home'>
-    
-	<top-bar title='主页'></top-bar>
-    <HotCycle/>
-    <MessageFlow :msg = 'message'/>
-    <Release/>
-    <MainTabBar/>
+  <div id="home" ref="home">
+    <top-bar title="主页"></top-bar>
 
+    <Scroll class="content" ref="scroll">
+      <HotCycle />
+      <MessageFlow :msg="message" />
+    </Scroll>
+
+    <Release />
+    <MainTabBar />
   </div>
 </template>
 
 <script>
+import Scroll from "components/Scroll.vue";
 
-import HotCycle from './childComponent/HotCycle.vue'
-import MessageFlow from './childComponent/MessageFlow.vue'
-import Release from './childComponent/Release.vue'
-import MainTabBar from 'components/tabbar/MainTabBar'
-import TopBar from 'components/TopBar.vue'
-import {getHomeGoods} from "network/home";
+import HotCycle from "./childComponent/HotCycle.vue";
+import MessageFlow from "./childComponent/MessageFlow.vue";
+import Release from "./childComponent/Release.vue";
+import MainTabBar from "components/tabbar/MainTabBar";
+import TopBar from "components/TopBar.vue";
 
+import { getHomeGoods } from "network/home";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     HotCycle,
     MessageFlow,
     Release,
     MainTabBar,
-	TopBar
-
+    TopBar,
+    Scroll,
   },
   data() {
     return {
       message: [],
-    }
+    };
   },
+
   created() {
-    getHomeGoods().then(res => {
+    getHomeGoods().then((res) => {
       this.message = res.data.data;
-    })
-  }
+      console.log(this.$Scroll);
+    });
+  },
+
+  mounted() {
+    this.$bus.$on("itemImageLoad", () => {
+      this.$refs.scroll.refresh(); 
+    });
+  },
 };
 </script>
 
@@ -48,14 +59,18 @@ export default {
   position: relative;
   width: 100%;
   box-sizing: border-box;
-
+  height: 100vh;
 }
 
+.content {
+  height: 550px;
+  overflow: hidden;
+}
 
 .bottom {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    height: 49px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: 49px;
 }
 </style>
