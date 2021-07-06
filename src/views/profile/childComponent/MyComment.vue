@@ -26,15 +26,17 @@ export default {
       message: []
     }
   },
+
   created() {
      getMyComment().then(res => {
-       this.message = res.data.data
+       this.message = res.data
+      console.log(res.data);
      })
   },
 
   methods: {
     back () {
-      this.$router.replace('/profile');
+      this.$router.push('/profile');
     }
   }
 };

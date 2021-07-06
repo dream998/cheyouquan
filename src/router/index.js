@@ -9,7 +9,8 @@ const Home = () => import('views/home/Home.vue')
 const Profile = () => import('views/profile/Profile.vue')
 const Publish = () => import('views/Publish.vue')
 const MyComment = () => import('views/profile/childComponent/MyComment.vue')
-
+const QAdetail = () => import('views/home/childComponent/QAdetail.vue')
+const Detail = () => import('views/home/childComponent/Detail.vue')
 
 import axios from 'axios'
 import mock from 'network/mock.js'
@@ -31,7 +32,7 @@ const routes = [
   {
   	  path:'/home',
   	  name:'Home',
-  	  component:Home
+  	  component:Home,
   	  
   },
   {
@@ -59,6 +60,16 @@ const routes = [
     path: '/mycomment',
     name: 'MyComment',
     component: MyComment
+  },
+  {
+    path: '/qadetail',
+    name: 'QAdetail',
+    component: QAdetail
+  },
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: Detail
   },
 
 ]
