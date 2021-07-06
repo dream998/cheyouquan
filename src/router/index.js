@@ -18,7 +18,6 @@ import mock from 'network/mock.js'
 Vue.use(VueRouter)
 
 const routes = [
- 
   {
     path: '/login',
     name: 'Login',

@@ -20,7 +20,7 @@ import TopBar from 'components/TopBar.vue'
 
 import { getUserMessage } from "network/profile";
 import axios from "axios";
-import request from "network/request_z.js";
+
 
 export default {
   name: "Profile",

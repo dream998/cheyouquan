@@ -106,6 +106,7 @@ export default {
 }
 .img {
   display: flex;
+  margin-top: 8px;
 }
 .img img {
   padding-right: 1px;

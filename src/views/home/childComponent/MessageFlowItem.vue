@@ -3,8 +3,11 @@
 
     <PostContent :msg='flowsItem' />
 
+    <div class='question' v-if='flowsItem.type'>
+      {{flowsItem.commentNums}}回答
+    </div>
     <!-- 为图文的情况，为问答的情况暂时还没写 -->
-    <div class="circle-comment-like" v-if='!flowsItem.type'>  
+    <div class="circle-comment-like" v-else>  
       <span class="circle">
            <img src="~assets/imgs/Group 17@2x.png" alt="">
            {{flowsItem.circle}}
@@ -21,6 +24,7 @@
         </span
       >
     </div>
+
   </div>
 </template>
 
@@ -113,5 +117,15 @@ export default {
   height: 24px;
   vertical-align: middle;
   margin-right: 5px;
+}
+
+.question {
+  margin-top: 20px;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #999999;
+  letter-spacing: 0;
+  line-height: 12px;
+  font-weight: 400;
 }
 </style>
