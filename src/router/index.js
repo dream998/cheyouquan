@@ -9,7 +9,12 @@ const Home = () => import('views/home/Home.vue')
 const Profile = () => import('views/profile/Profile.vue')
 const Publish = () => import('views/Publish.vue')
 const MyComment = () => import('views/profile/childComponent/MyComment.vue')
+
 const MyShare = () => import('views/profile/childComponent/MyShare.vue')
+
+const QAdetail = () => import('views/home/childComponent/QAdetail.vue')
+const Detail = () => import('views/home/childComponent/Detail.vue')
+
 
 import axios from 'axios'
 import mock from 'network/mock.js'
@@ -17,7 +22,6 @@ import mock from 'network/mock.js'
 Vue.use(VueRouter)
 
 const routes = [
- 
   {
     path: '/login',
     name: 'Login',
@@ -31,7 +35,7 @@ const routes = [
   {
   	  path:'/home',
   	  name:'Home',
-  	  component:Home
+  	  component:Home,
   	  
   },
   {
@@ -61,10 +65,21 @@ const routes = [
     component: MyComment
   },
   {
+
 	  path:'/myshare',
 	  name: "MyShare",
 	  component: MyShare
-  }
+  },
+  {
+    path: '/qadetail',
+    name: 'QAdetail',
+    component: QAdetail
+  },
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: Detail
+  },
 
 ]
 

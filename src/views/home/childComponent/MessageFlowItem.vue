@@ -1,37 +1,42 @@
 <template>
   <div id="message-flow-item">
-    <div class="header">
-      <img :src="flowsItem.personIcon" alt="用户头像" />
-      <div class="name-time">
-        <div class="username">{{ flowsItem.username }}</div>
-        <div class="time">{{ flowsItem.time }}</div>
-      </div>
+
+    <PostContent :msg='flowsItem' />
+
+    <div class='question' v-if='flowsItem.type'>
+      {{flowsItem.commentNums}}回答
     </div>
-
-    <div class="text">{{ flowsItem.text }}</div>
-
-    <div class="img">
-      <img v-for="item in flowsItem.img" :src="item" alt="" />
-    </div>
-
-    <div class="comment-like">
+    <!-- 为图文的情况，为问答的情况暂时还没写 -->
+    <div class="circle-comment-like" v-else>  
+      <span class="circle">
+           <img src="~assets/imgs/Group 17@2x.png" alt="">
+           {{flowsItem.circle}}
+      </span>
       <span class="comment"
         ><img src="~assets/imgs/Group 2@2x.png" alt="" />{{
           flowsItem.commentNums
         }}</span
       >
-      <span class="like" @click="likeClick"
-        ><img src="~assets/imgs/ugc_icon_like_selected_24.svg" alt="" />{{
-          flowsItem.likeNums
-        }}</span
+      <span class="like" @click="likeClick">
+        <img v-if='flag' src="~assets/imgs/ugc_icon_like_normal_24.svg" alt="" />
+        <img v-else src="~assets/imgs/ugc_icon_like_selected_24.svg" alt="" />
+        {{flowsItem.likeNums}}
+        </span
       >
     </div>
+
   </div>
 </template>
 
 <script>
+
+import PostContent from './PostContent.vue'
+
 export default {
   name: "MessageFlowItem",
+    components: {
+    PostContent,
+  },
   props: {
     flowsItem: {
       type: Object,
@@ -65,60 +70,9 @@ export default {
   text-align: left;
   margin: 50px 0;
 }
-.header {
-  width: 100%;
-  /* height: 40px; */
-  margin-bottom: 10px;
-}
-.header img {
-  float: left;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-}
-.name-time {
-  margin-left: 50px;
-  margin-top: 20px;
-}
-.name-time .username {
-  font-family: PingFangSC-Medium;
-  font-size: 14px;
-  color: #333333;
-  line-height: 14px;
-  font-weight: 500;
-}
 
-.name-time .time {
-  margin-top: 5px;
-  font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #999999;
-  line-height: 12px;
-  font-weight: 400;
-}
-.text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  font-family: PingFangSC-Regular;
-  font-size: 16px;
-  color: #333333;
-  letter-spacing: 0;
-  line-height: 24px;
-  font-weight: 400;
-}
-.img {
-  display: flex;
-}
-.img img {
-  padding-right: 1px;
-  flex: 50%;
-}
-
-.comment-like {
-  float: right;
+.circle-comment-like {
+  /* float: right; */
   height: 35px;
   margin-top: 20px;
   margin-right: 20px;
@@ -128,21 +82,50 @@ export default {
   line-height: 12px;
 }
 
-.comment-like .comment {
+.circle-comment-like .circle {
+  /* float: left; */
+  font-family: PingFangSC-Medium;
+  font-size: 12px;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 12px;
+  font-weight: 500;
+  margin-right: 90px;
+}
+
+.circle-comment-like .circle img {
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+.circle-comment-like .comment {
   margin-right: 10px;
+  
 }
 
-.comment-like .comment img {
+.circle-comment-like .comment img {
   width: 24px;
   height: 24px;
   vertical-align: middle;
   margin-right: 5px;
 }
 
-.comment-like .like img {
+.circle-comment-like .like img {
   width: 24px;
   height: 24px;
   vertical-align: middle;
   margin-right: 5px;
+}
+
+.question {
+  margin-top: 20px;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #999999;
+  letter-spacing: 0;
+  line-height: 12px;
+  font-weight: 400;
 }
 </style>
