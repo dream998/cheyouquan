@@ -9,7 +9,7 @@ const Home = () => import('views/home/Home.vue')
 const Profile = () => import('views/profile/Profile.vue')
 const Publish = () => import('views/Publish.vue')
 const MyComment = () => import('views/profile/childComponent/MyComment.vue')
-
+const MyShare = () => import('views/profile/childComponent/MyShare.vue')
 
 import axios from 'axios'
 import mock from 'network/mock.js'
@@ -60,6 +60,11 @@ const routes = [
     name: 'MyComment',
     component: MyComment
   },
+  {
+	  path:'/myshare',
+	  name: "MyShare",
+	  component: MyShare
+  }
 
 ]
 

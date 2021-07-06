@@ -1,9 +1,8 @@
 <template>
 
 	<div id="publish">
-		<div class="publish-topbar">
-			<top-bar title='发布' @goBefore='goBefore'></top-bar>
-		</div>
+		
+		<top-bar title='发布' @goBefore='goBefore'></top-bar>
 		
 		<div id="content" ref='content'>
 			<div class='text'>
@@ -210,9 +209,7 @@
 
 <style scoped>
 	
-	.publish-topbar{
-		height: 50px;
-	}
+	
 	
 	#content {
 		margin-top: 10px;

@@ -21,11 +21,11 @@ export default {
   name: "ShareComment",
   methods: {
       commentClick() {
-          this.$router.replace('/mycomment')
+          this.$router.push('/mycomment')
       },
 
       shareClick() {
-        this.$router.replace('/myshare')
+        this.$router.push('/myshare')
       }
   }
 };

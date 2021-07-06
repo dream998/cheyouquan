@@ -1,8 +1,7 @@
 <template>
   <div id="home" ref = 'home'>
-    <div class="home-topbar">
-		<top-bar title='主页' ></top-bar>
-	</div>
+
+	<top-bar title='主页' @goBefore="goBefore"></top-bar>
 	
     <HotCycle/>
     <MessageFlow :msg = 'message'/>
@@ -36,6 +35,11 @@ export default {
     return {
       message: [],
     }
+  },
+  methods:{
+	  goBefore() {
+	         this.$router.back();
+	     }
   },
   created() {
     getHomeGoods().then(res => {

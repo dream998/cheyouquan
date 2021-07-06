@@ -1,13 +1,16 @@
 <template>
-	<div class="topbar">
-		<van-nav-bar
-		  :title='this.title'
-		  right-text="···"
-		  left-arrow
-		  @click-left="onClickLeft"
-		  @click-right="onClickRight"
-		/>
+	<div class="outer">
+		<div class="topbar">
+			<van-nav-bar
+			  :title='this.title'
+			  right-text="···"
+			  left-arrow
+			  @click-left="onClickLeft"
+			  @click-right="onClickRight"
+			/>
+		</div>
 	</div>
+	
 	
 </template>
 
@@ -44,5 +47,7 @@ import { Toast } from 'vant';
 		right: 0;
 		z-index: 99;
 	}	
-	
+	.outer{
+		height: 50px;
+	}
 </style>

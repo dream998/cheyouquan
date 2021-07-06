@@ -1,8 +1,7 @@
 <template>
 	<div>
-		<div class="login-topbar">
-			<top-bar title='登录'></top-bar>
-		</div>
+		
+		<top-bar title='登录'></top-bar>
 		
 		<div class="content">
 			<div class="content-title">登录车友圈</div>
@@ -110,12 +109,8 @@
 		font-weight: 500;
 		margin-bottom: 50px;
 		margin-left: 12px;
-
-
 	}
-	.login-topbar{
-		height: 50px;
-	}
+	
 	.van-button--warning {
 		color: #1F2129;
 	}

@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div class="circle-topbar">
-			<top-bar title='选择车圈'></top-bar>
-		</div>
+		
+		<top-bar title='选择车圈' @goBefore="goBefore()"></top-bar>
+		
 		<div class="content">
 			<div class="circle-item" v-for="item in circleData" @click="returnPublic(item.circleID,item.name)">
 				<div class="icon">
@@ -75,16 +75,17 @@
 						name: name
 					}
 				})
+			},
+			goBefore(){
+				console.log("你点击了后退");
+				this.$router.back()
 			}
 		}
 	}
 </script>
 
 <style scoped="scoped">
-	.circle-topbar {
-		height: 50px;
-	}
-
+	
 	.content {
 		margin-left: 20px;
 		margin-top: 20px;

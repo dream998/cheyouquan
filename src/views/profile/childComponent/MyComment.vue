@@ -1,7 +1,7 @@
 <template>
   <div id="my-comment">
 
-    <top-bar title='我的评论'></top-bar>
+    <top-bar title='我的评论' @goBefore="goBefore"></top-bar>
     
     <commentItem v-for='item in message' :msg='item' />
   </div>
@@ -33,9 +33,13 @@ export default {
   },
 
   methods: {
-    back () {
-      this.$router.replace('/profile');
-    }
+    // back () {
+    //   this.$router.replace('/profile');
+    // },
+	goBefore(){
+		console.log("你点击了后退");
+		this.$router.back()
+	}
   }
 };
 </script>
