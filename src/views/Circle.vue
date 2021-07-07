@@ -1,7 +1,7 @@
 <template>
 	<div class="parent">
 
-		<top-bar title="车友圈"></top-bar>
+		<top-bar title="车友圈" @goBefore="goBefore"></top-bar>
 
 
 		<div class="circle-card">
@@ -62,6 +62,9 @@
 		methods: {
 			tabClick() {
 				console.log("点击了");
+			},
+			goBefore(){
+				this.$router.back()
 			}
 		},
 		created() {
@@ -152,5 +155,10 @@
 	}
 	.tab-control{
 		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.content{
+		background-color: white;
+		padding-top: 5px;
 	}
 </style>

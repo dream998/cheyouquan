@@ -44,7 +44,7 @@ export default {
     PostContent,
     DetailBottom,
   },
-<<<<<<< HEAD
+
 
   data() {
     return {
@@ -56,15 +56,16 @@ export default {
     this.message = this.$route.params.data;
     console.log(this.$route.params.data);
   },
-};
-=======
   methods:{
-	  goBefore(){
-		  this.$router.back()
-	  }
+  	  goBefore(){
+  		  this.$router.back()
+  	  }
   }
-}
->>>>>>> jianning
+};
+
+ 
+
+
 </script>
 
 <style scoped>
