@@ -12,7 +12,10 @@ import 'amfe-flexible/index.js'
 // import 'assets/js/flexible.js'
 
 //引入vant组件
-import { Button, NavBar, Form, Field, Toast, Uploader, ActionSheet } from 'vant';
+
+import { Button, NavBar,Form,Field,Toast,Uploader,ActionSheet,Sticky} from 'vant';
+
+
 
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 
@@ -24,7 +27,7 @@ Vue.use(Form);
 Vue.use(Field);
 Vue.use(Uploader);
 Vue.use(ActionSheet);
-
+Vue.use(Sticky);
 Vue.config.productionTip = false
 
 Vue.prototype.$bus = new Vue()     //数据总线$bus

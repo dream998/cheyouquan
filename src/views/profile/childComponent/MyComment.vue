@@ -1,9 +1,9 @@
 <template>
   <div id="my-comment">
 
-    <top-bar title='我的评论'></top-bar>
+    <top-bar title='我的评论' @goBefore="goBefore"></top-bar>
     
-    <commentItem v-for='item in message' :msg='item' />
+    <commentItem v-for='item in message' :msg='item' @deleteItem="deleteItem"/>
   </div>
 </template>
 
@@ -36,9 +36,20 @@ export default {
   },
 
   methods: {
-    back () {
-      this.$router.push('/profile');
-    }
+
+    // back () {
+    //   this.$router.replace('/profile');
+    // },
+	goBefore(){
+		console.log("你点击了后退");
+		this.$router.back()
+	},
+	deleteItem(){
+		console.log("接收到了");
+		
+	}
+	
+
   }
 };
 </script>

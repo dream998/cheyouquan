@@ -1,8 +1,8 @@
 <template>
   <div id="profile">
-	<div class="profile-topbar">
-		<top-bar title="个人首页"></top-bar>
-	</div>
+	
+		<top-bar title="个人首页" @goBefore="goBefore"></top-bar>
+	
 	
     <UserMessage :msg = 'message'/>
     <ShareComment />
@@ -48,8 +48,8 @@ export default {
 
 
   methods: {
-     back() {
-            this.$router.replace('/home');
+     goBefore() {
+            this.$router.back();
         }
   }
 
@@ -62,9 +62,7 @@ export default {
   background: #F5F5F5;
   height: 667px;
 }
-.profile-topbar{
-	height: 50px;
-}
+
 .changeCount {
   margin: 6px auto;
   background-color: #fff;

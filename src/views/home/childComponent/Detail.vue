@@ -1,6 +1,7 @@
 <template>
+
   <div id="detail">
-    <top-bar title="帖子详情"></top-bar>
+      <top-bar title='帖子详情' @goBefore="goBefore"></top-bar>
 
     <div class="content">
       <PostContent :msg="message" />
@@ -28,6 +29,7 @@
 
     <DetailBottom />
   </div>
+
 </template>
 
 <script>
@@ -42,6 +44,7 @@ export default {
     PostContent,
     DetailBottom,
   },
+<<<<<<< HEAD
 
   data() {
     return {
@@ -54,6 +57,14 @@ export default {
     console.log(this.$route.params.data);
   },
 };
+=======
+  methods:{
+	  goBefore(){
+		  this.$router.back()
+	  }
+  }
+}
+>>>>>>> jianning
 </script>
 
 <style scoped>

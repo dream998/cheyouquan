@@ -36,10 +36,10 @@ export default {
 }
 
 .tab-bar-item img {
-  margin-top: 10px;
+  
   width: 32px;
   height: 32px;
   vertical-align: middle;
-  margin-bottom: 2px;
+ 
 }
 </style>

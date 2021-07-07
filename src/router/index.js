@@ -9,8 +9,12 @@ const Home = () => import('views/home/Home.vue')
 const Profile = () => import('views/profile/Profile.vue')
 const Publish = () => import('views/Publish.vue')
 const MyComment = () => import('views/profile/childComponent/MyComment.vue')
+
+const MyShare = () => import('views/profile/childComponent/MyShare.vue')
+
 const QAdetail = () => import('views/home/childComponent/QAdetail.vue')
 const Detail = () => import('views/home/childComponent/Detail.vue')
+const ChooseCircle = () => import("views/ChooseCircle.vue")
 
 
 import axios from 'axios'
@@ -63,6 +67,12 @@ const routes = [
     component: MyComment
   },
   {
+
+	  path:'/myshare',
+	  name: "MyShare",
+	  component: MyShare
+  },
+  {
     path: '/qadetail',
     name: 'QAdetail',
     component: QAdetail
@@ -72,6 +82,11 @@ const routes = [
     name: 'Detail',
     component: Detail
   },
+  {
+    path: '/choosecircle',
+    name: 'ChooseCircle',
+    component: ChooseCircle
+  }
 
 ]
 

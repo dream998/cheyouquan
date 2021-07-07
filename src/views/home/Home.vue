@@ -1,8 +1,7 @@
 <template>
   <div id="home" ref = 'home'>
-    <div class="home-topbar">
-		<top-bar title='主页' ></top-bar>
-	</div>
+
+	<top-bar title='主页' @goBefore="goBefore"></top-bar>
 	
    <Scroll class="content" ref="scroll">
       <HotCycle />
@@ -41,6 +40,12 @@ export default {
     };
   },
 
+  methods:{
+	  goBefore() {
+	         this.$router.back();
+	     }
+  },
+
   created() {
     getHomeGoods().then((res) => {
       this.message = res.data.data;
@@ -71,6 +76,7 @@ export default {
 .content {
   height: 550px;
   overflow: hidden;
+  margin-top: 10px;
 }
 
 .bottom {
