@@ -1,6 +1,6 @@
 <template>
      <div id="detail">
-         <top-bar title='帖子详情'></top-bar>
+         <top-bar title='帖子详情' @goBefore="goBefore"></top-bar>
          <!-- <h4>{{this.$route.params.data}}</h4> -->
      </div>
 </template>
@@ -14,6 +14,11 @@ export default {
    components: {
 	TopBar
   },
+  methods:{
+	  goBefore(){
+		  this.$router.back()
+	  }
+  }
 }
 </script>
 

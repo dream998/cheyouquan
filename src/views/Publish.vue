@@ -174,7 +174,7 @@
 				console.log(this.fileList);
 			},
 			chooseCircle(){
-				 this.$router.push('/circle');
+				 this.$router.push('/choosecircle');
 			}
 
 		},

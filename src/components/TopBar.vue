@@ -42,6 +42,7 @@ import { Toast } from 'vant';
 <style scoped="scoped">
 	.topbar{
 		position: fixed;
+		position: -ms-device-fixed;
 		top: 0;
 		left: 0;
 		right: 0;

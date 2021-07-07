@@ -76,6 +76,7 @@ export default {
 .content {
   height: 550px;
   overflow: hidden;
+  margin-top: 10px;
 }
 
 .bottom {

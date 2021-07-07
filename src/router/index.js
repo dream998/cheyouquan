@@ -14,7 +14,7 @@ const MyShare = () => import('views/profile/childComponent/MyShare.vue')
 
 const QAdetail = () => import('views/home/childComponent/QAdetail.vue')
 const Detail = () => import('views/home/childComponent/Detail.vue')
-
+const ChooseCircle = () => import("views/ChooseCircle.vue")
 
 import axios from 'axios'
 import mock from 'network/mock.js'
@@ -80,6 +80,11 @@ const routes = [
     name: 'Detail',
     component: Detail
   },
+  {
+    path: '/choosecircle',
+    name: 'ChooseCircle',
+    component: ChooseCircle
+  }
 
 ]
 
