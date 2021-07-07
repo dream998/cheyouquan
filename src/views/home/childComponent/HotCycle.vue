@@ -5,13 +5,22 @@
       <span class="text">热门车友圈</span>
     </div>
 
-    <div class="hot-cycle-item">
-      <HotCycleItem v-for="item in message" :msg="item" :key="item.id" />
-    </div>
+    <vuescroll :ops="ops">
+      <div class="hot-cycle-item">
+        <!-- <swiper ref="mySwiper">
+        <swiper-slide v-for='item in haha'> -->
+
+        <HotCycleItem v-for="item in message" :msg="item" :key="item.id" />
+        <!-- </swiper-slide>
+      </swiper> -->
+      </div>
+    </vuescroll>
   </div>
 </template>
 
 <script>
+import vuescroll from "vuescroll";
+
 import HotCycleItem from "./HotCycleItem.vue";
 
 import { getHotCycle } from "network/hotCycle.js";
@@ -20,11 +29,26 @@ export default {
   name: "HotCycle",
   components: {
     HotCycleItem,
+    vuescroll,
   },
 
   data() {
     return {
       message: [],
+      ops: {
+        vuescroll: {
+          mode: "native",
+        },
+        scrollPanel: {
+          easing: "easeInOutQuart",
+        },
+        bar: {
+          onlyShowBarOnScroll: false,
+          // keepShow: true,
+          size: "350px",
+          opacity: 0,
+        },
+      },
     };
   },
 
@@ -65,7 +89,5 @@ export default {
   width: 246px;
   height: 177px;
   margin: 0 12px;
-
-  
 }
 </style>

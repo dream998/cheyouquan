@@ -5,7 +5,8 @@
       <img v-for="item in msg.imgs" :src="item" alt="" />
     </div>
     <div class="icon-text-btn">
-        <img v-for="item in msg.perconIcons" :src="item" alt="" />
+        <img v-for="item in msg.perconIcons.slice(0,3)" :src="item" alt="" />
+        <!-- <img src="~assets/imgs/更多@2x.png" alt="" /> -->
         <span>{{msg.count}}位活跃车友</span>
         <button>加入</button>
 

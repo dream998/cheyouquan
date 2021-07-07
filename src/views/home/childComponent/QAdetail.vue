@@ -1,7 +1,7 @@
 <template>
   <div id="qadetail">
     <top-bar title="车友圈"></top-bar>
-    <div class="qadetail">
+    <div class="content">
       <PostContent :msg="message" />
     </div>
     <div class="blank"></div>
@@ -43,16 +43,17 @@ export default {
 </script>
 
 <style scoped>
-.qadetail {
+.content {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  padding: 0px 10px;
+  padding: 50px 10px 10px;
 }
+
 
 .blank {
   width: 100%;
-  height: 1px;
+  height: 6px;
   background-color: #f4f5f6;
   margin-top: 10px;
 }

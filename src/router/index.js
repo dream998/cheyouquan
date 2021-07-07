@@ -12,12 +12,14 @@ const MyComment = () => import('views/profile/childComponent/MyComment.vue')
 const QAdetail = () => import('views/home/childComponent/QAdetail.vue')
 const Detail = () => import('views/home/childComponent/Detail.vue')
 
+
 import axios from 'axios'
 import mock from 'network/mock.js'
 
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/login',
     name: 'Login',
