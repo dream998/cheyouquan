@@ -3,10 +3,11 @@
 
     <PostContent :msg='flowsItem' />
 
+    <!-- 为问答情况 -->
     <div class='question' v-if='flowsItem.type'>
       {{flowsItem.commentNums}}回答
     </div>
-    <!-- 为图文的情况，为问答的情况暂时还没写 -->
+    <!-- 为图文的情况-->
     <div class="circle-comment-like" v-else>  
       <span class="circle">
            <img src="~assets/imgs/Group 17@2x.png" alt="">
@@ -68,7 +69,7 @@ export default {
 #message-flow-item {
   width: 100%;
   text-align: left;
-  margin: 50px 0;
+  margin: 15px 0;
 }
 
 .circle-comment-like {
