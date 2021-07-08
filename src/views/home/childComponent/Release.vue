@@ -1,11 +1,11 @@
 <template>
   <div class="release">
-    <div class="release_content" v-if="isClick" @click='divClick'>
-      <div class="img">
+    <div class="release_content" v-if="isClick" >
+      <div class="img" @click='divClick(0)'>
         <img src="~assets/imgs/图文@2x.png" alt="" />
         发图文
       </div>
-      <div class="question">
+      <div class="question" @click='divClick(1)'>
         <img src="~assets/imgs/03-发布@2x.png" alt="" />
         提问
       </div>
@@ -28,8 +28,14 @@ export default {
       return (this.isClick = !this.isClick);
     },
 
-    divClick() {
-       this.$router.push('/publish');
+    divClick(type) {
+		
+       this.$router.push({
+					name: 'Publish',
+					params: {
+						type:type
+					}
+				});
     }
   },
 };
