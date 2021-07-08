@@ -1,11 +1,11 @@
 import request from './request_z.js'
 
-export function uploadMessage(text,imgs){
+export function uploadMessage(text,imgs,circleID,type){
 
 	let params = {
-		username:'wu',
-		type:1,
-		circleID:'1',
+		username:window.localStorage.getItem('username'),
+		type:type,
+		circleID:circleID,
 		text:text,
 		img:[]
 	}
@@ -16,5 +16,6 @@ export function uploadMessage(text,imgs){
 		params.img.push(imgs[i].content)
 	}
 	console.log(params);
+	console.log(params.img);
 	return request.post('api/client/user/publish',params)
 }

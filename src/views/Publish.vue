@@ -63,6 +63,7 @@
 				circleName:'',
 				show: false,
 				actions: [{ name: '保存草稿' }, { name: '丢弃' }],
+				type:1
 				
 
 			}
@@ -75,24 +76,17 @@
 			upload() {
 				console.log("上传图片");
 				console.log(this.message);
-				// request.get('api/client/user/dynamic', {
-				// 					params: {
-				// 						username: 'wu',
-				// 					}
-				// 				}).then(res => {
-				// 					console.log('success');
-				// 					console.log(res);
-				// 				}, err => {
-				// 					console.log(err);
-				// 				})
-				//uploadMessage(this.message,this.fileList).then(res=>{console.log(res);})
+				
 				console.log("车圈ID是"+this.$route.params.circleID);
 				//this.circleID = this.$route.params.circleID;
 				if( !this.message){
 					Toast("请输入内容！")
 				}
-				if( !this.circleID){
+				else if( !this.circleID){
 					Toast("您还没有选择车圈！")
+				}
+				else{
+					uploadMessage(this.message,this.fileList,this.circleID,this.type).then(res=>{console.log(res);})
 				}
 				
 			},
@@ -174,6 +168,7 @@
 				console.log(this.fileList);
 			},
 			chooseCircle(){
+				this.setLocalStorage()
 				 this.$router.push('/choosecircle');
 			}
 
@@ -190,6 +185,8 @@
 			if(this.$route.params){
 				this.circleName = this.$route.params.name;
 				this.circleID = this.$route.params.circleID
+				this.type = this.$route.params.type;
+				
 			}
 				
 				
@@ -246,7 +243,7 @@
 		float: left;
 		display: flex;
 		height: 30px;
-		width: 40%;
+		
 		text-align: center;
 		/* color: #333333; */
 		border: none;
@@ -257,6 +254,7 @@
 
 	.choose-circle {
 		margin-top: 2px;
+		width: 200px;
 	}
 
 	.big {

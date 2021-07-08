@@ -26,8 +26,8 @@
 
       <div class="text">抢先评论，这里需要你的态度</div>
     </div>
-
-    <DetailBottom />
+	<comment></comment>
+    <!-- <DetailBottom /> -->
   </div>
 
 </template>
@@ -36,13 +36,14 @@
 import TopBar from "components/TopBar.vue";
 import PostContent from "./PostContent.vue";
 import DetailBottom from "./DetailBottom.vue";
-
+import comment from 'components/Comment/Comment.vue'
 export default {
   name: "Detail",
   components: {
     TopBar,
     PostContent,
     DetailBottom,
+	comment
   },
 
 
@@ -75,7 +76,9 @@ export default {
   text-align: left;
   padding: 50px 10px 10px;
 }
-
+.comment{
+	margin-bottom: 20px;
+}
 .comment span{
   font-family: PingFang-SC-Bold;
   font-size: 16px;
@@ -126,4 +129,5 @@ export default {
   text-align: center;
   font-weight: 400;
 }
+
 </style>

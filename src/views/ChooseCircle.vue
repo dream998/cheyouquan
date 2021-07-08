@@ -24,6 +24,7 @@
 
 <script>
 	import TopBar from 'components/TopBar.vue'
+	import {getAllCircle} from 'network/allCircle.js'
 	export default {
 		components: {
 			TopBar
@@ -80,6 +81,11 @@
 				console.log("你点击了后退");
 				this.$router.back()
 			}
+		},
+		created() {
+			getAllCircle().then(res=>{
+				this.circleData = res.data
+			})
 		}
 	}
 </script>

@@ -13,6 +13,7 @@
 				<div style="margin: 16px;">
 					<van-button block type="warning" native-type="submit">提交</van-button>
 				</div>
+				<div class="hint">未注册用户会自动注册并登录</div>
 			</van-form>
 		</div>
 
@@ -45,7 +46,7 @@
 				let _this = this
 				//访问登录接口
 				let formData = new FormData();
-				// 将请求参数一个一个append进去，因为涉及到项目内部东西，而且需要安全请求，所以就随便写了几个键值代替
+				
 				formData.append('username', this.username);
 				formData.append('password', this.password);
 
@@ -55,6 +56,7 @@
 						if (res.data != null) {
 							Toast("登录成功！")
 							window.localStorage.setItem('access-admin', JSON.stringify(res.headers.authorization))
+							window.localStorage.setItem("username",_this.username)
 							_this.$router.replace({
 								path: '/'
 							})
@@ -66,29 +68,31 @@
 			//注册函数
 			register() {
 				let _this = this
+				let formData = new FormData();
+				
+				formData.append('username', this.username);
+				formData.append('password', this.password);
+				
 				//访问注册接口
-				axios.post("http://121.4.90.69:8082/api/user/register", {
-						username: _this.username,
-						password: _this.password
-					})
+				axios.post("http://121.4.90.69:8082/api/user/register", formData)
 					.then(res => {
 						console.log(res.data.state);
-						if (res.data.state == 200) {
+						if (res.data.state == 1) {
 							Toast('注册成功，点击登录！')
 
 
-						} else {
-							//用户名重复，表示已注册过，调用登录接口
+						}else{
 							_this.signIn()
 						}
 					}, err => {
-						console.log(err);
+						
+						
 					})
 			},
 			onSubmit(values) {
 				console.log('submit', values);
-				//this.register()
-				this.signIn()
+				this.register()
+				//this.signIn()
 			}
 		},
 	};
@@ -113,5 +117,14 @@
 	
 	.van-button--warning {
 		color: #1F2129;
+	}
+	.hint{
+		font-family: PingFangSC-Regular;
+		font-size: 12px;
+		color: #979AA8;
+		letter-spacing: 0;
+		text-align: center;
+		line-height: 18px;
+		font-weight: 400;
 	}
 </style>
