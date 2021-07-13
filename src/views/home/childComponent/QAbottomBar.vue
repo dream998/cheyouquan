@@ -20,8 +20,8 @@ export default {
 
 <style scoped>
 #qabottombar {
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
+  bottom: 0;
   display: flex;
   width: 375px;
   height: 49px;

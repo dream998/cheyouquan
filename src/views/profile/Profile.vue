@@ -28,7 +28,7 @@ export default {
     UserMessage,
     ShareComment,
     MainTabBar,
-	TopBar
+	  TopBar
 
   },
 
@@ -42,7 +42,7 @@ export default {
     getUserMessage().then((res) => {
       // this.message = res.data.data
       this.message = res.data;
-      console.log(res.data);
+      console.log(res);
   })
   },
 

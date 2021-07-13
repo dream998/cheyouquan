@@ -9,6 +9,9 @@
       <span>回答</span>
       ({{ message.commentNums }})
     </div>
+    
+        <!-- 评论展示组件 -->
+      <comment></comment>
 
     <QAbottomBar />
   </div>
@@ -18,6 +21,7 @@
 
 import TopBar from "components/TopBar.vue";
 import PostContent from "./PostContent.vue";
+import comment from 'components/Comment/Comment.vue'
 import QAbottomBar from "./QAbottomBar.vue";
 
 export default {
@@ -32,6 +36,7 @@ export default {
     TopBar,
     PostContent,
     QAbottomBar,
+    comment
   },
 
   created() {
@@ -47,7 +52,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  padding: 50px 10px 10px;
+  padding: 0 10px 10px;
 }
 
 
