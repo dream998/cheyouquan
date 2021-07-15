@@ -10,7 +10,11 @@
       ({{ message.commentNums }})
     </div>
 	<answer class="answer"></answer>
-	<QAbottomBar />
+	<QAbottomBar />   
+        <!-- 评论展示组件 -->
+     <!-- <comment></comment>
+ -->
+
   </div>
 </template>
 
@@ -18,6 +22,7 @@
 
 import TopBar from "components/TopBar.vue";
 import PostContent from "./PostContent.vue";
+import comment from 'components/Comment/Comment.vue'
 import QAbottomBar from "./QAbottomBar.vue";
 import Answer from 'components/Comment/Answer.vue'
 export default {
@@ -40,6 +45,7 @@ export default {
 	  goBefore(){
 		  this.$router.back()
 	  }
+
   },
   created() {
     this.message = this.$route.params.data;

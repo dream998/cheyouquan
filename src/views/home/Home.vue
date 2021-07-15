@@ -54,7 +54,9 @@ export default {
 
   mounted() {
     this.$bus.$on("itemImageLoad", () => {
-      this.$refs.scroll.refresh(); 
+      if (this.$refs.scroll !== undefined) {
+        this.$refs.scroll.refresh(); 
+      }
     });
   },
 };

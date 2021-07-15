@@ -12,6 +12,7 @@
       <div class="blank"></div>
       <span>评论</span>
     <!-- 评论展示组件 -->
+      <comment></comment>
     </div>
 
     <!-- 无评论情况 -->
@@ -26,8 +27,10 @@
 
       <div class="text">抢先评论，这里需要你的态度</div>
     </div>
+
 	<comment class="comment-content" :newComment='commentData' @reply='reply'></comment>
     <DetailBottom @publishComment='publishComment' :username='username'/>
+
   </div>
 
 </template>
@@ -131,7 +134,9 @@ export default {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
+
   padding: 0px 10px 10px;
+
 }
 .comment{
 	margin-bottom: 20px;

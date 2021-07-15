@@ -35,7 +35,9 @@ export default {
 <style scoped>
 #qabottombar {
   position: fixed;
+
   bottom: 0px;
+
   display: flex;
   width: 375px;
   height: 49px;
