@@ -6,7 +6,7 @@
 
 		<div class="circle-card">
 			<div class="left">
-				<div class="title">奔驰C级车友圈</div>
+				<div class="title">{{circleCardMsg.name}}</div>
 				<div class="people">
 					<span class="master">
 						<span>圈主：</span>
@@ -14,11 +14,9 @@
 					</span>
 
 					<span class="members">
-						<img src="../assets/imgs/Mask@2x.png" alt="">
-						<img src="../assets/imgs/Mask@2x.png" alt="">
-						<img src="../assets/imgs/Mask@2x.png" alt="">
-						<img src="../assets/imgs/Mask@2x.png" alt="">
-						等30402个车友
+						<img v-for="item in circleCardMsg.perconIcons" :src="item" alt="">
+						
+						等{{circleCardMsg.count}}个车友
 					</span>
 
 				</div>
@@ -48,6 +46,7 @@
 		getHomeGoods
 	} from "network/home";
 	export default {
+		name:'Circle',
 		components: {
 			TopBar,
 			TabControl,
@@ -56,6 +55,7 @@
 		data() {
 			return {
 				message: [],
+				circleCardMsg:{}
 
 			}
 		},
@@ -68,6 +68,8 @@
 			}
 		},
 		created() {
+			console.log(this.$route);
+			this.circleCardMsg = this.$route.params.msg
 			getHomeGoods().then((res) => {
 				this.message = res.data.data;
 			});

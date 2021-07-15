@@ -1,11 +1,11 @@
 <template>
   <div id="qabottombar">
-    <div class="ask">
+    <div class="ask" @click="goPublish(1)">
       <img src="~assets/imgs/Group 87@2x.png" alt="" />
       我要提问
     </div>
 
-    <div class="ans">
+    <div class="ans" @click="writeAnswer">
       <img src="~assets/imgs/Group 87@2x.png" alt="" />
       写回答
     </div>
@@ -13,20 +13,35 @@
 </template>
 
 <script>
+	
 export default {
   name: "QAbottomBar",
+  methods:{
+	  goPublish(type){
+		  this.$router.push({
+			  name:'Publish',
+			  params:{
+				  type:type
+			  }
+		  })
+	  },
+	  writeAnswer(){
+		  
+	  }
+  }
 };
 </script>
 
 <style scoped>
 #qabottombar {
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
+  bottom: 0px;
   display: flex;
   width: 375px;
   height: 49px;
   background: #ffffff;
   box-shadow: 0 -1px 0 0 #ededed;
+  
   /* border-top: 1px solid #EDEDED; */
 
   font-family: PingFangSC-Medium;

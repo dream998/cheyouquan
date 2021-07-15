@@ -1,6 +1,6 @@
 <template>
 	<div class="comment">
-		<comment-item v-for="item in newCommentData" :commentItemData="item"></comment-item>
+		<comment-item v-for="item in newCommentData" :commentItemData="item" @reply='reply'></comment-item>
 	</div>
 
 </template>
@@ -10,6 +10,12 @@
 	export default {
 		components: {
 			CommentItem
+		},
+		props:{
+			newComment:{
+				type:Object,
+				default:{}
+			}
 		},
 		data() {
 			return {
@@ -26,7 +32,7 @@
 
 						},
 						{
-							"username": "奥特曼打小鬼",
+							"username": "张三",
 							"dynamicID": "呼啦呼啦20211181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170510%2F62d64c61ccc74f1d840467d483d87566_th.png&refer=http%3A%2F%2Fimg.mp.sohu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628344107&t=cc8be7b85c9a5da010e8cc4c6f665e57",
 							"text": "这辆车太好看了！",
@@ -36,7 +42,7 @@
 
 						},
 						{
-							"username": "奥特曼打小鬼",
+							"username": "李四",
 							"dynamicID": "呼啦呼啦20211181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Fmw690%2F0064Mxxwly1gs5vm10hagj30qy0yh0w8.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628343995&t=ceaaced98c01f5594824ab9c4c2f7543",
 							"text": "这辆车太好看了！",
@@ -46,7 +52,7 @@
 
 						},
 						{
-							"username": "奥特曼打小鬼",
+							"username": "王五",
 							"dynamicID": "呼啦呼啦20211181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww4.sinaimg.cn%2Fmw690%2F62fe2526gy1gry7dbgqaij20j60nydi4.jpg&refer=http%3A%2F%2Fwww.sina.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628343995&t=4af4f030e9c6061e2f207463546a4644",
 							"text": "这辆车太好看了！",
@@ -56,7 +62,7 @@
 
 						},
 						{
-							"username": "奥特曼打小鬼",
+							"username": "赵能",
 							"dynamicID": "呼啦呼啦20211181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww4.sinaimg.cn%2Fmw690%2F62fe2526gy1gry7dbgqaij20j60nydi4.jpg&refer=http%3A%2F%2Fwww.sina.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628343995&t=4af4f030e9c6061e2f207463546a4644",
 							"text": "这辆车太好看了！",
@@ -66,7 +72,7 @@
 
 						},
 						{
-							"username": "奥特曼打小鬼",
+							"username": "夹心糖",
 							"dynamicID": "呼啦呼啦20211181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202106%2F13%2F20210613214437_61305.thumb.1000_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628343995&t=325f599b2be1d5c24344cba7822247fd",
 							"text": "这辆车太好看了！",
@@ -76,7 +82,7 @@
 
 						},
 						{
-							"username": "奥特曼打小鬼",
+							"username": "我是大聪明",
 							"dynamicID": "呼啦呼啦20211181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202106%2F13%2F20210613214437_61305.thumb.1000_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628343995&t=325f599b2be1d5c24344cba7822247fd",
 							"text": "这辆车太好看了！",
@@ -92,6 +98,7 @@
 			}
 		},
 		methods: {
+			//对接收到的数进行转换
 			transformData() {
 				console.log("我执行了");
 				let length = this.commentData.data.length;
@@ -114,6 +121,11 @@
 
 				}
 				return newCommentData
+			},
+			reply(replyData){
+				//console.log(replyData);
+				this.$emit('reply',replyData);
+				
 			}
 		},
 		created() {

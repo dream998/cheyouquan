@@ -1,5 +1,5 @@
 <template>
-  <div id="hotcycleitem">
+  <div id="hotcycleitem" @click="goCircle(msg)">
     <div class="cycle-name">{{ msg.name }}</div>
     <div class="car-img">
       <img v-for="item in msg.imgs" :src="item" alt="" />
@@ -25,6 +25,16 @@ export default {
       },
     },
   },
+  methods:{
+	  goCircle(msg){
+		 this.$router.push({
+		 					name: 'Circle',
+		 					params: {
+		 						msg:msg
+		 					}
+		 				});
+	  }
+  }
 };
 </script>
 
@@ -34,6 +44,7 @@ export default {
   margin: 0 6px;
   padding: 12px 6px;
   border: 0.5px solid #eee;
+  
 }
 #hotcycleitem .cycle-name {
   font-family: PingFang-SC-Bold;

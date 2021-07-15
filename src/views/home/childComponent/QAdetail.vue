@@ -1,6 +1,6 @@
 <template>
   <div id="qadetail">
-    <top-bar title="车友圈"></top-bar>
+    <top-bar title="车友圈" @goBefore='goBefore'></top-bar>
     <div class="content">
       <PostContent :msg="message" />
     </div>
@@ -9,8 +9,8 @@
       <span>回答</span>
       ({{ message.commentNums }})
     </div>
-
-    <QAbottomBar />
+	<answer class="answer"></answer>
+	<QAbottomBar />
   </div>
 </template>
 
@@ -19,12 +19,14 @@
 import TopBar from "components/TopBar.vue";
 import PostContent from "./PostContent.vue";
 import QAbottomBar from "./QAbottomBar.vue";
-
+import Answer from 'components/Comment/Answer.vue'
 export default {
   name: "QAdetail",
   data() {
     return {
-      message: {},
+      message: {
+		  commentNums:0
+	  },
     };
   },
 
@@ -32,8 +34,13 @@ export default {
     TopBar,
     PostContent,
     QAbottomBar,
+	Answer
   },
-
+  methods:{
+	  goBefore(){
+		  this.$router.back()
+	  }
+  },
   created() {
     this.message = this.$route.params.data;
     console.log(this.message);
@@ -47,7 +54,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  padding: 50px 10px 10px;
+  padding: 0 10px 10px;
 }
 
 
@@ -65,4 +72,8 @@ export default {
   font-weight: 700;
   padding: 5px 10px;
 }
+.answer{
+		
+		margin-bottom: 50px;
+	}
 </style>

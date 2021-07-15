@@ -9,7 +9,7 @@
 				<div class="comment-text">{{commentItemData.mainData.text}}</div>
 				<div class="timeAndReply">
 					<span class="comment-time">{{commentItemData.mainData.time}}</span>
-					<button class="reply">回复</button>
+					<button class="reply" @click="reply(commentItemData.mainData.dynamicID,commentItemData.mainData.commentID,commentItemData.mainData.username)">回复</button>
 				</div>
 			</div>
 		</div>
@@ -29,6 +29,12 @@
 			commentItemData:{
 				type:Object,
 				default:{}
+			}
+		},
+		methods:{
+			reply(dynamicID,commentID,username){
+				this.$emit('reply',{dynamicID,commentID,username})
+				
 			}
 		}
 	}

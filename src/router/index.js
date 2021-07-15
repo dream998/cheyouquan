@@ -47,7 +47,7 @@ const routes = [
   },
   {
 	  path:'/circle',
-	  name:'circle',
+	  name:'Circle',
 	  component:Circle
   },
   

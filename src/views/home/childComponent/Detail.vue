@@ -26,8 +26,8 @@
 
       <div class="text">抢先评论，这里需要你的态度</div>
     </div>
-	<comment></comment>
-    <!-- <DetailBottom /> -->
+	<comment class="comment-content" :newComment='commentData' @reply='reply'></comment>
+    <DetailBottom @publishComment='publishComment' :username='username'/>
   </div>
 
 </template>
@@ -37,6 +37,7 @@ import TopBar from "components/TopBar.vue";
 import PostContent from "./PostContent.vue";
 import DetailBottom from "./DetailBottom.vue";
 import comment from 'components/Comment/Comment.vue'
+import {Toast} from 'vant'
 export default {
   name: "Detail",
   components: {
@@ -50,6 +51,30 @@ export default {
   data() {
     return {
       message: [],
+	   username:'',
+	   commentID:'',
+	   content:'',
+	  commentData:{
+		 
+		  mainData:{
+			  "username": "奥特曼打小鬼",
+			  "dynamicID": "呼啦呼啦20211181332",
+			  "personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F15%2F20160115232537_FYdvP.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628344107&t=5f894a3ef22e2f7be43a216df173ea75",
+			  "text": "asf了！",
+			  "time": "2021-06-18 13:32",
+			  "commentID": "奥特曼打小鬼202454181332",
+			  "parentCommentId": "null"
+		  },
+	},
+	additionData:{
+				 "username": "奥特曼打小鬼",
+				 "dynamicID": "呼啦呼啦20211181332",
+				 "personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F15%2F20160115232537_FYdvP.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628344107&t=5f894a3ef22e2f7be43a216df173ea75",
+				 "text": "asf了！",
+				 "time": "2021-06-18 13:32",
+				 "commentID": "奥特曼打小鬼202454181332",
+				 "parentCommentId": "null" 
+	}
     };
   },
 
@@ -60,7 +85,39 @@ export default {
   methods:{
   	  goBefore(){
   		  this.$router.back()
-  	  }
+  	  },
+	  publishComment(content){
+		  
+		  if(this.additionData.parentCommentId =='null'){
+			this.commentData.mainData.text = content
+			//console.log( this.commentData.text);
+			this.$children[2].newCommentData.unshift(this.commentData);
+			//console.log(this.$children[2].newCommentData);
+			Toast("评论发布成功！")  
+		  }else{
+			  
+			 for(let i=0;i<this.$children[2].newCommentData.length;i++){
+				 if(this.$children[2].newCommentData[i].mainData.commentID==this.additionData.parentCommentId){
+					 this.additionData.text = content
+					//console.log(this.$children[2].newCommentData[i].additionData)
+					this.$children[2].newCommentData[i].additionData.push(this.additionData) 
+					Toast('回复成功!')
+				 }
+			 } 
+			 this.additionData.parentCommentId='null'
+		  }
+		  
+		 
+	  },
+	 
+	  reply(replyData){
+		  console.log(replyData);
+		  this.additionData.parentCommentId = replyData.commentID
+		  console.log(this.additionData.parentCommentId)
+		  Toast("回复"+replyData.username)
+		  this.username = replyData.username
+		  
+	  }
   }
 };
 
@@ -74,7 +131,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  padding: 50px 10px 10px;
+  padding: 0px 10px 10px;
 }
 .comment{
 	margin-bottom: 20px;
@@ -129,5 +186,7 @@ export default {
   text-align: center;
   font-weight: 400;
 }
-
+.comment-content{
+	margin-bottom: 40px;
+}
 </style>
