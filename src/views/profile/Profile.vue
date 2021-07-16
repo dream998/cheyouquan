@@ -8,7 +8,7 @@
     <ShareComment />
     <MainTabBar />
 
-    <div class='changeCount'>切换账号</div>
+    <div class='changeCount' @click="goLogin">切换账号</div>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ import TopBar from 'components/TopBar.vue'
 
 import { getUserMessage } from "network/profile";
 import axios from "axios";
-
+import {Toast} from 'vant'
 
 export default {
   name: "Profile",
@@ -50,7 +50,11 @@ export default {
   methods: {
      goBefore() {
             this.$router.back();
-        }
+        },
+	goLogin(){
+		Toast("请重新登录！")
+		this.$router.push('/login')
+	}
   }
 
 };

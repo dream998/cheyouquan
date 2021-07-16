@@ -1,5 +1,5 @@
 <template>
-  <div id="post-content">
+  <div id="post-content" @click="goToDetail">
     <div class="header">
       <img :src="msg.personIcon" alt="用户头像" />
       <div class="name-time">
@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <div class="text" @click="goToDetail">{{ msg.text }}</div>
+    <div class="text" >{{ msg.text }}</div>
 
     <div class="img" >
       <img v-for="item in msg.img" :src="item" alt="" @load="imageLoad"/>
@@ -30,7 +30,8 @@ export default {
 
   methods: {
     goToDetail() {
-      if (this.$route.path.indexOf("/home") !== -1) {
+		console.log(this.$route.path)
+      
         if (this.msg.type) {
           this.$router.push({
             name: "QAdetail",
@@ -46,7 +47,7 @@ export default {
             },
           });
         }
-      }
+      
     },
 
     imageLoad() {                    // 发送图片加载完成信号

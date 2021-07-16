@@ -86,7 +86,13 @@
 					Toast("您还没有选择车圈！")
 				}
 				else{
-					uploadMessage(this.message,this.fileList,this.circleID,this.type).then(res=>{console.log(res);})
+					uploadMessage(this.message,this.fileList,this.circleID,this.type)
+					.then(res=>{
+						console.log(res);
+						Toast("动态发布成功！")
+						this.removeLocalStorage()
+						this.$router.push('/home')
+					})
 				}
 				
 			},

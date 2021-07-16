@@ -5,7 +5,7 @@
 		<top-bar title="我的动态" @goBefore='goBefore'></top-bar>
 		<div class="content">
 			<div class="dynamicItem">
-				<my-comment-item v-for='item in message.data' :msg='item'></my-comment-item>
+				<my-comment-item v-for='item in message.data' :msg='item' @deleteItem="deleteItem"></my-comment-item>
 				
 			</div>
 		</div>
@@ -58,6 +58,15 @@
 			goBefore() {
 				console.log("你点击了后退");
 				this.$router.back()
+			},
+			deleteItem(dynamicId){
+				for (let s in this.message.data) {
+					console.log(s);
+					if(this.message.data[s].dynamicId==dynamicId){
+						this.message.data.splice(s,1)
+					}
+				}
+				
 			}
 
 		},

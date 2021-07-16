@@ -19,3 +19,5 @@ export function uploadMessage(text,imgs,circleID,type){
 	console.log(params.img);
 	return request.post('api/client/user/publish',params)
 }
+
+

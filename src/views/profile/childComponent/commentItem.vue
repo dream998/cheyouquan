@@ -13,7 +13,7 @@
 					</div>
 					<div class="time">
 						{{msg.time}}
-						<img src="~assets/imgs/Group 25@2x.png" alt="" @click="deleteItem">
+						<img src="~assets/imgs/Group 25@2x.png" alt="" @click="deleteItem(msg.dynamicId)">
 					</div>
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 			},
 		},
 		methods: {
-			deleteItem() {
+			deleteItem(dynamicId) {
 
 				Dialog.confirm({
 						title: "确认删除",
@@ -50,7 +50,7 @@
 					})
 					.then(() => {
 						// on confirm
-						this.$emit("deleteItem")
+						this.$emit("deleteItem",dynamicId)
 					})
 					.catch(() => {
 						// on cancel

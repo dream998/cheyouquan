@@ -46,7 +46,7 @@
 		getHomeGoods
 	} from "network/home";
 	export default {
-		name:'Circle',
+		name:'CarCircle',
 		components: {
 			TopBar,
 			TabControl,
@@ -67,7 +67,7 @@
 				this.$router.back()
 			}
 		},
-		created() {
+		activated() {
 			console.log(this.$route);
 			this.circleCardMsg = this.$route.params.msg
 			getHomeGoods().then((res) => {
