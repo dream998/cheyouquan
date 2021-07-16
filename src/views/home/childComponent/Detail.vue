@@ -12,7 +12,7 @@
       <div class="blank"></div>
       <span>评论</span>
     <!-- 评论展示组件 -->
-      <comment></comment>
+     <!-- <comment></comment> -->
     </div>
 
     <!-- 无评论情况 -->
@@ -82,6 +82,7 @@ export default {
   },
 
   created() {
+	console.log("detail创建了")
     this.message = this.$route.params.data;
     console.log(this.$route.params.data);
   },

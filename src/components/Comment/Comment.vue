@@ -1,22 +1,18 @@
 <template>
 	<div class="comment">
-		<comment-item v-for="item in newCommentData" :commentItemData="item" @reply='reply'></comment-item>
+		<comment-item v-for="item in newCommentData" :commentItemData="item" @reply='reply' :key='item.commentID'></comment-item>
 	</div>
 
 </template>
 
 <script>
 	import CommentItem from "./CommentItem.vue"
+	
 	export default {
 		components: {
 			CommentItem
 		},
-		// props:{
-		// 	newComment:{
-		// 		type:Object,
-		// 		default:{}
-		// 	}
-		// },
+	
 		data() {
 			return {
 				commentData: {
@@ -32,7 +28,7 @@
 						},
 						{
 							"username": "张三",
-							"dynamicID": "呼啦呼啦20211181332",
+							"dynamicID": "呼啦呼啦20212231181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170510%2F62d64c61ccc74f1d840467d483d87566_th.png&refer=http%3A%2F%2Fimg.mp.sohu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628344107&t=cc8be7b85c9a5da010e8cc4c6f665e57",
 							"text": "这辆车太好看了！",
 							"time": "2021-06-18 13:32",
@@ -41,7 +37,7 @@
 						},
 						{
 							"username": "李四",
-							"dynamicID": "呼啦呼啦20211181332",
+							"dynamicID": "呼啦呼啦2021121181332",
 							"personIcon": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Fmw690%2F0064Mxxwly1gs5vm10hagj30qy0yh0w8.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628343995&t=ceaaced98c01f5594824ab9c4c2f7543",
 							"text": "这辆车太好看了！",
 							"time": "2021-06-18 13:32",
@@ -96,7 +92,7 @@
 				let length = this.commentData.data.length;
 				let oldData = this.commentData.data
 				let _this = this;
-				let newCommentData = []
+				let anewCommentData = []
 				for (let i = 0; i < length - 1; i++) {
 					console.log(oldData[i]);
 					let item = {
@@ -109,9 +105,10 @@
 						}
 						
 					}
-					newCommentData.push(item)
+					anewCommentData.push(item)
 				}
-				return newCommentData
+				console.log(anewCommentData);
+				return anewCommentData
 			},
 			reply(replyData){
 				//console.log(replyData);
@@ -123,6 +120,9 @@
 			console.log("comment创建了");
 			this.newCommentData = this.transformData()
 			console.log(this.newCommentData);
+			for (let var1 in this.newCommentData) {
+				console.log(var1);
+			}
 			console.log("------");
 			console.log(this.commentData);
 		}
